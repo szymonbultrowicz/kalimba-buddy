@@ -1,6 +1,7 @@
 import { Tab, signValues, Sign, Octave, octaveValues } from "./music-models";
 
 const octaveDotSign = '°';
+const octaveDotSignRegex = new RegExp(`${octaveDotSign}`, 'gi');
 
 export interface FailedTab {
     input: string;
@@ -17,12 +18,12 @@ export const isSuccessfullyResolvedTab = (tab: ResolvedTab): tab is Tab =>
 
 export const dotsToOctave = (input: string): Octave => {
     console.log(input);
-    const octave = 4 + [...input.matchAll(/°/gi)].length;
+    const octave = 4 + [...input.matchAll(octaveDotSignRegex)].length;
     return octaveValues.includes(octave as unknown as Octave) ? octave as Octave : 4;
 }
 
 export const octaveToDots = (octave: Octave): string =>
-    [...Array(octave - 4)].map(() => '°').join('')
+    [...Array(octave - 4)].map(() => octaveDotSign).join('')
 
 const assumedTabToTab = (text: string): ResolvedTab => {
     const sign = text.toUpperCase().charAt(0) as unknown as Sign;
