@@ -2015,6 +2015,11 @@
   resolved "https://registry.yarnpkg.com/@trysound/sax/-/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"
   integrity sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==
 
+"@types/antlr4@^4.11.2":
+  version "4.11.2"
+  resolved "https://registry.yarnpkg.com/@types/antlr4/-/antlr4-4.11.2.tgz#46b70713b38eecb2d1a8e2ffd14544367067b41e"
+  integrity sha512-WVDiUppozGAKAL76KbXX63A4U4a0HfHM/5X7+GWzen7OaS/7eJEMdd61B+Hhl52Kedcmr80/jNeeWrM3Z/icig==
+
 "@types/aria-query@^5.0.1":
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/@types/aria-query/-/aria-query-5.0.1.tgz#3286741fb8f1e1580ac28784add4c7a1d49bdfbc"
@@ -2734,6 +2739,11 @@ ansi-styles@^5.0.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-5.2.0.tgz#07449690ad45777d1924ac2abb2fc8895dba836b"
   integrity sha512-Cxwpt2SfTzTtXcfOlzGEee8O+c+MmUgGrNiBcXnuWxuFJHe6a5Hz7qwhwe5OgaSYI0IJvkLqWX1ASG+cJOkEiA==
+
+antlr4@4.11.0:
+  version "4.11.0"
+  resolved "https://registry.yarnpkg.com/antlr4/-/antlr4-4.11.0.tgz#d7466f5044fa6e333c0ec821b30c6157f6b004ae"
+  integrity sha512-GUGlpE2JUjAN+G8G5vY+nOoeyNhHsXoIJwP1XF1oRw89vifA1K46T6SEkwLwr7drihN7I/lf0DIjKc4OZvBX8w==
 
 anymatch@^3.0.3, anymatch@~3.1.2:
   version "3.1.3"
