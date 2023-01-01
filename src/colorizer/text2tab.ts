@@ -9,7 +9,6 @@ import {
 import antlr4 from "antlr4";
 import KalimbaLexer from "../grammar/KalimbaLexer";
 import KalimbaParser from "../grammar/KalimbaParser";
-import { Filter } from "@mui/icons-material";
 
 const octaveDotSign = "°";
 const octaveDotSignRegex = new RegExp(`[${octaveDotSign}*]`, "gi");

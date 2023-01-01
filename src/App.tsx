@@ -1,27 +1,34 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
-import CssBaseline from '@mui/material/CssBaseline';
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+import CssBaseline from "@mui/material/CssBaseline";
 
-import { Colorizer } from './colorizer/Colorizer';
-import { AppBar, Box, createTheme, ThemeProvider, Toolbar, Typography, useMediaQuery } from '@mui/material';
-
+import { Colorizer } from "./colorizer/Colorizer";
+import {
+  AppBar,
+  Box,
+  createTheme,
+  ThemeProvider,
+  Toolbar,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 
 function App() {
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
   const theme = React.useMemo(
     () =>
       createTheme({
         palette: {
-          mode: prefersDarkMode ? 'dark' : 'light',
+          mode: prefersDarkMode ? "dark" : "light",
         },
       }),
-    [prefersDarkMode],
+    [prefersDarkMode]
   );
 
   return (
@@ -36,7 +43,7 @@ function App() {
           </Toolbar>
         </AppBar>
       </Box>
-      <Box sx={{textAlign: 'center'}}>
+      <Box sx={{ textAlign: "center" }}>
         <Colorizer />
       </Box>
     </ThemeProvider>
