@@ -1,7 +1,7 @@
 grammar Kalimba;
 
 OCTAVE: '*'+;
-ID: [a-zA-Z_];
+ID: [a-zA-Z];
 GROUP_START: '(';
 GROUP_END: ')';
 
@@ -11,15 +11,20 @@ program
     : line EOF
     ;
 
-line: expr+
+line
+    : expr+
     ;
     
-note: ID
+note
+    : ID
     | ID OCTAVE?
     ;
 
-expr: note
+expr
+    : note
     | group
     ;
 
-group : GROUP_START expr (expr)* GROUP_END ;
+group
+    : GROUP_START expr+ GROUP_END
+    ;

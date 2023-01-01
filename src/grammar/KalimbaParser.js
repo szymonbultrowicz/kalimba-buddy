@@ -2,17 +2,17 @@
 // jshint ignore: start
 import antlr4 from 'antlr4';
 import KalimbaListener from './KalimbaListener.js';
-const serializedATN = [4,1,5,40,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,
+const serializedATN = [4,1,5,38,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,
 1,0,1,0,1,0,1,1,4,1,15,8,1,11,1,12,1,16,1,2,1,2,1,2,3,2,22,8,2,3,2,24,8,
-2,1,3,1,3,3,3,28,8,3,1,4,1,4,1,4,5,4,33,8,4,10,4,12,4,36,9,4,1,4,1,4,1,4,
-0,0,5,0,2,4,6,8,0,0,39,0,10,1,0,0,0,2,14,1,0,0,0,4,23,1,0,0,0,6,27,1,0,0,
-0,8,29,1,0,0,0,10,11,3,2,1,0,11,12,5,0,0,1,12,1,1,0,0,0,13,15,3,6,3,0,14,
-13,1,0,0,0,15,16,1,0,0,0,16,14,1,0,0,0,16,17,1,0,0,0,17,3,1,0,0,0,18,24,
-5,2,0,0,19,21,5,2,0,0,20,22,5,1,0,0,21,20,1,0,0,0,21,22,1,0,0,0,22,24,1,
-0,0,0,23,18,1,0,0,0,23,19,1,0,0,0,24,5,1,0,0,0,25,28,3,4,2,0,26,28,3,8,4,
-0,27,25,1,0,0,0,27,26,1,0,0,0,28,7,1,0,0,0,29,30,5,3,0,0,30,34,3,6,3,0,31,
-33,3,6,3,0,32,31,1,0,0,0,33,36,1,0,0,0,34,32,1,0,0,0,34,35,1,0,0,0,35,37,
-1,0,0,0,36,34,1,0,0,0,37,38,5,4,0,0,38,9,1,0,0,0,5,16,21,23,27,34];
+2,1,3,1,3,3,3,28,8,3,1,4,1,4,4,4,32,8,4,11,4,12,4,33,1,4,1,4,1,4,0,0,5,0,
+2,4,6,8,0,0,37,0,10,1,0,0,0,2,14,1,0,0,0,4,23,1,0,0,0,6,27,1,0,0,0,8,29,
+1,0,0,0,10,11,3,2,1,0,11,12,5,0,0,1,12,1,1,0,0,0,13,15,3,6,3,0,14,13,1,0,
+0,0,15,16,1,0,0,0,16,14,1,0,0,0,16,17,1,0,0,0,17,3,1,0,0,0,18,24,5,2,0,0,
+19,21,5,2,0,0,20,22,5,1,0,0,21,20,1,0,0,0,21,22,1,0,0,0,22,24,1,0,0,0,23,
+18,1,0,0,0,23,19,1,0,0,0,24,5,1,0,0,0,25,28,3,4,2,0,26,28,3,8,4,0,27,25,
+1,0,0,0,27,26,1,0,0,0,28,7,1,0,0,0,29,31,5,3,0,0,30,32,3,6,3,0,31,30,1,0,
+0,0,32,33,1,0,0,0,33,31,1,0,0,0,33,34,1,0,0,0,34,35,1,0,0,0,35,36,5,4,0,
+0,36,9,1,0,0,0,5,16,21,23,27,33];
 
 
 const atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -190,19 +190,17 @@ export default class KalimbaParser extends antlr4.Parser {
 	        this.enterOuterAlt(localctx, 1);
 	        this.state = 29;
 	        this.match(KalimbaParser.GROUP_START);
-	        this.state = 30;
-	        this.expr();
-	        this.state = 34;
+	        this.state = 31; 
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        while(_la===2 || _la===3) {
-	            this.state = 31;
+	        do {
+	            this.state = 30;
 	            this.expr();
-	            this.state = 36;
+	            this.state = 33; 
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
-	        }
-	        this.state = 37;
+	        } while(_la===2 || _la===3);
+	        this.state = 35;
 	        this.match(KalimbaParser.GROUP_END);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -411,6 +409,10 @@ class GroupContext extends antlr4.ParserRuleContext {
 	    return this.getToken(KalimbaParser.GROUP_START, 0);
 	};
 
+	GROUP_END() {
+	    return this.getToken(KalimbaParser.GROUP_END, 0);
+	};
+
 	expr = function(i) {
 	    if(i===undefined) {
 	        i = null;
@@ -420,10 +422,6 @@ class GroupContext extends antlr4.ParserRuleContext {
 	    } else {
 	        return this.getTypedRuleContext(ExprContext,i);
 	    }
-	};
-
-	GROUP_END() {
-	    return this.getToken(KalimbaParser.GROUP_END, 0);
 	};
 
 	enterRule(listener) {
