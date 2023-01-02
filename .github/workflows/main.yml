@@ -27,18 +27,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - name: Set Node.js 16.x
+      - name: Set Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
+          cache: yarn
       - name: Run install
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: install
+        run: yarn
       - name: Build
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: build
+        run: yarn build
       - name: 'upload'
         uses: actions/upload-pages-artifact@v1.0.4
         with: 
