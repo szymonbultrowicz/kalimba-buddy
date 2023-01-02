@@ -1,7 +1,7 @@
 grammar Kalimba;
 
-OCTAVE: [*°]+;
-ID: [a-zA-Z];
+OCTAVE: [*º°]+;
+ID: [a-zA-Z0-9];
 GROUP_START: '(';
 GROUP_END: ')';
 

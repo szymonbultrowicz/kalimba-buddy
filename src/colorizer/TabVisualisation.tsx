@@ -3,7 +3,6 @@ import { colorNote } from "./color-note";
 import {
   isFailedTab,
   isSuccessfullyResolvedTab,
-  octaveToDots,
   ResolvedTab,
 } from "./text2tab";
 
@@ -18,11 +17,12 @@ const commonStyles: CSSProperties = {
 };
 
 export const TabVisualisation = ({ tab }: TabVisualisationProps) => {
-  console.log(tab);
   return (
     <>
       {isFailedTab(tab) && (
-        <span style={{ ...commonStyles, color: "red" }}>{tab.input}</span>
+        <span title={tab.error} style={{ ...commonStyles, color: "red" }}>
+          {tab.input}
+        </span>
       )}
       {isSuccessfullyResolvedTab(tab) &&
         (Array.isArray(tab) ? (
@@ -36,7 +36,7 @@ export const TabVisualisation = ({ tab }: TabVisualisationProps) => {
         ) : (
           <span style={{ ...commonStyles, color: colorNote(tab) }}>
             {tab.sign}
-            {octaveToDots(tab.octave)}
+            {[...Array(tab.octave - 4)].map(() => "°")}
           </span>
         ))}
     </>

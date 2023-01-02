@@ -24,10 +24,8 @@ const calculatePosition = (note: Note): Position => {
 
 export const colorNote = (note: Note): string => {
   const position = calculatePosition(note);
-  console.log(note, position);
   const l = String(100 - (100 / 8) * position.depth);
   const color =
     position.side === "left" ? `hsl(264, 60%, ${l}%)` : `hsl(130, 50%, ${l}%)`;
-  console.log(color);
   return color;
 };

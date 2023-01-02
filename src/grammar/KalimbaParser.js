@@ -234,7 +234,7 @@ KalimbaParser.RULE_note = 2;
 KalimbaParser.RULE_expr = 3;
 KalimbaParser.RULE_group = 4;
 
-class ProgramContext extends antlr4.ParserRuleContext {
+export class ProgramContext extends antlr4.ParserRuleContext {
 
     constructor(parser, parent, invokingState) {
         if(parent===undefined) {
@@ -281,7 +281,7 @@ class ProgramContext extends antlr4.ParserRuleContext {
 
 
 
-class LineContext extends antlr4.ParserRuleContext {
+export class LineContext extends antlr4.ParserRuleContext {
 
     constructor(parser, parent, invokingState) {
         if(parent===undefined) {
@@ -331,7 +331,7 @@ class LineContext extends antlr4.ParserRuleContext {
 
 
 
-class NoteContext extends antlr4.ParserRuleContext {
+export class NoteContext extends antlr4.ParserRuleContext {
 
     constructor(parser, parent, invokingState) {
         if(parent===undefined) {
@@ -378,7 +378,7 @@ class NoteContext extends antlr4.ParserRuleContext {
 
 
 
-class ExprContext extends antlr4.ParserRuleContext {
+export class ExprContext extends antlr4.ParserRuleContext {
 
     constructor(parser, parent, invokingState) {
         if(parent===undefined) {
@@ -425,7 +425,7 @@ class ExprContext extends antlr4.ParserRuleContext {
 
 
 
-class GroupContext extends antlr4.ParserRuleContext {
+export class GroupContext extends antlr4.ParserRuleContext {
 
     constructor(parser, parent, invokingState) {
         if(parent===undefined) {
