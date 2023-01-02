@@ -2,6 +2,8 @@
 // jshint ignore: start
 import antlr4 from 'antlr4';
 import KalimbaListener from './KalimbaListener.js';
+import KalimbaVisitor from './KalimbaVisitor.js';
+
 const serializedATN = [4,1,5,38,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,
 1,0,1,0,1,0,1,1,4,1,15,8,1,11,1,12,1,16,1,2,1,2,1,2,3,2,22,8,2,3,2,24,8,
 2,1,3,1,3,3,3,28,8,3,1,4,1,4,4,4,32,8,4,11,4,12,4,33,1,4,1,4,1,4,0,0,5,0,
@@ -266,6 +268,14 @@ class ProgramContext extends antlr4.ParserRuleContext {
 		}
 	}
 
+	accept(visitor) {
+	    if ( visitor instanceof KalimbaVisitor ) {
+	        return visitor.visitProgram(this);
+	    } else {
+	        return visitor.visitChildren(this);
+	    }
+	}
+
 
 }
 
@@ -308,6 +318,14 @@ class LineContext extends antlr4.ParserRuleContext {
 		}
 	}
 
+	accept(visitor) {
+	    if ( visitor instanceof KalimbaVisitor ) {
+	        return visitor.visitLine(this);
+	    } else {
+	        return visitor.visitChildren(this);
+	    }
+	}
+
 
 }
 
@@ -347,6 +365,14 @@ class NoteContext extends antlr4.ParserRuleContext {
 		}
 	}
 
+	accept(visitor) {
+	    if ( visitor instanceof KalimbaVisitor ) {
+	        return visitor.visitNote(this);
+	    } else {
+	        return visitor.visitChildren(this);
+	    }
+	}
+
 
 }
 
@@ -384,6 +410,14 @@ class ExprContext extends antlr4.ParserRuleContext {
 	    if(listener instanceof KalimbaListener ) {
 	        listener.exitExpr(this);
 		}
+	}
+
+	accept(visitor) {
+	    if ( visitor instanceof KalimbaVisitor ) {
+	        return visitor.visitExpr(this);
+	    } else {
+	        return visitor.visitChildren(this);
+	    }
 	}
 
 
@@ -434,6 +468,14 @@ class GroupContext extends antlr4.ParserRuleContext {
 	    if(listener instanceof KalimbaListener ) {
 	        listener.exitGroup(this);
 		}
+	}
+
+	accept(visitor) {
+	    if ( visitor instanceof KalimbaVisitor ) {
+	        return visitor.visitGroup(this);
+	    } else {
+	        return visitor.visitChildren(this);
+	    }
 	}
 
 
