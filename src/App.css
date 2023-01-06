@@ -12,3 +12,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+body a {
+  color: inherit;
+  text-decoration: none;
+}
+

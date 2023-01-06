@@ -1,5 +1,13 @@
+import { atom, useAtom } from "jotai";
 import React, { CSSProperties } from "react";
+import { NoteRepresentation, noteRepresentationAtom } from "../settings/state";
 import { colorNote } from "./color-note";
+import {
+  RepresentationConverter,
+  toEnglishSign,
+  toGermanSign,
+  toNumber,
+} from "./representation-converters";
 import {
   isFailedTab,
   isSuccessfullyResolvedTab,
@@ -16,7 +24,21 @@ const commonStyles: CSSProperties = {
   margin: 10,
 };
 
+const signConverterAtom = atom<RepresentationConverter>((get) => {
+  const value = Number(get(noteRepresentationAtom));
+  switch (value) {
+    case NoteRepresentation.English:
+      return toEnglishSign;
+    case NoteRepresentation.German:
+      return toGermanSign;
+    default:
+      return toNumber;
+  }
+});
+
 export const TabVisualisation = ({ tab }: TabVisualisationProps) => {
+  const [signConverter] = useAtom(signConverterAtom);
+
   return (
     <>
       {isFailedTab(tab) && (
@@ -35,7 +57,7 @@ export const TabVisualisation = ({ tab }: TabVisualisationProps) => {
           </>
         ) : (
           <span style={{ ...commonStyles, color: colorNote(tab) }}>
-            {tab.sign}
+            {signConverter(tab)}
             {[...Array(tab.octave - 4)].map(() => "°")}
           </span>
         ))}

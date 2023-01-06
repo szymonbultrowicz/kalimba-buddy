@@ -4,14 +4,25 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { TabVisualisation } from "./TabVisualisation";
 import { ResolvedTab, text2tab } from "./text2tab";
+import { atomWithStorage, createJSONStorage } from "jotai/utils";
+import { useAtom } from "jotai";
+
+interface Song {
+  title?: string;
+  tabs: string;
+}
+
+const storage = createJSONStorage<Song>(() => localStorage);
+const songAtom = atomWithStorage<Song>("song", { tabs: "" } as Song, storage);
 
 export const Colorizer = () => {
-  const [input, setInput] = useState("");
   const [tabs, setTabs] = useState<Array<Array<ResolvedTab>>>([]);
 
+  const [song, setSong] = useAtom(songAtom);
+
   useEffect(() => {
-    setTabs(text2tab(input));
-  }, [input]);
+    setTabs(text2tab(song.tabs));
+  }, [song]);
 
   return (
     <>
@@ -20,8 +31,8 @@ export const Colorizer = () => {
         <TextField
           multiline
           maxRows={10}
-          value={input}
-          onChange={(event) => setInput(event.target.value)}
+          value={song.tabs}
+          onChange={(event) => setSong({ ...song, tabs: event.target.value })}
         />
       </Box>
       <Box>

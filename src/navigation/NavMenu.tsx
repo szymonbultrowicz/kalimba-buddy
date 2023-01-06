@@ -19,7 +19,13 @@ export const NavMenu = ({ open, onClose }: NavMenuProperties) => {
   return (
     <Drawer anchor="left" open={open} onClose={onClose}>
       <List sx={{ width: 250, maxWidth: "100vw" }}>
-        <ListItem key="home" disablePadding component={Link} to="/">
+        <ListItem
+          key="home"
+          disablePadding
+          component={Link}
+          to="/"
+          onClick={() => onClose()}
+        >
           <ListItemButton>
             <ListItemIcon>
               <HomeIcon />
@@ -27,7 +33,13 @@ export const NavMenu = ({ open, onClose }: NavMenuProperties) => {
             <ListItemText primary="Home" />
           </ListItemButton>
         </ListItem>
-        <ListItem key="settings" disablePadding component={Link} to="/settings">
+        <ListItem
+          key="settings"
+          disablePadding
+          component={Link}
+          to="/settings"
+          onClick={() => onClose()}
+        >
           <ListItemButton>
             <ListItemIcon>
               <SettingsIcon />

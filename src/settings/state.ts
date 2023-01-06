@@ -1,8 +1,15 @@
-import { atom } from "jotai";
+import { atomWithStorage, createJSONStorage } from "jotai/utils";
+
+const storage = createJSONStorage(() => localStorage);
 
 export enum NoteRepresentation {
-  Letters,
+  English,
+  German,
   Numbers,
 }
 
-export const noteRepresentationAtom = atom(NoteRepresentation.Letters);
+export const noteRepresentationAtom = atomWithStorage(
+  "settings-note-representation",
+  NoteRepresentation.Numbers,
+  storage
+);
