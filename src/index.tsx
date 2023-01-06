@@ -7,22 +7,27 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { SettingsPage } from "./settings/SettingsPage";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App />,
+      children: [
+        {
+          path: "/",
+          element: <Colorizer />,
+        },
+        {
+          path: "settings",
+          element: <SettingsPage />,
+        },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "/",
-        element: <Colorizer />,
-      },
-      {
-        path: "settings",
-        element: <SettingsPage />,
-      },
-    ],
-  },
-]);
+    basename: "/kalimba-buddy",
+  }
+);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
