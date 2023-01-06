@@ -5,7 +5,7 @@ interface Position {
   depth: number;
 }
 
-const isOddNote = (note: Note) => ["C", "E", "G", "H"].includes(note.sign);
+const isOddNote = (note: Note) => ["C", "E", "G", "B"].includes(note.sign);
 
 const isOddOctate = (node: Note) => !!(node.octave % 2);
 
@@ -26,6 +26,6 @@ export const colorNote = (note: Note): string => {
   const position = calculatePosition(note);
   const l = String(100 - (100 / 8) * position.depth);
   const color =
-    position.side === "left" ? `hsl(264, 60%, ${l}%)` : `hsl(130, 50%, ${l}%)`;
+    position.side === "left" ? `hsl(0, 50%, ${l}%)` : `hsl(120, 50%, ${l}%)`;
   return color;
 };
